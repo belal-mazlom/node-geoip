@@ -13,7 +13,7 @@ var dbConfig = configs.dbConfig;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect(dbConfig.uri);//, dbConfig.options);
+mongoose.connect(dbConfig.uri, { useMongoClient: true });//, dbConfig.options);
 
 mongoose.connection.on('open', function (ref) {
     console.log('Connected to mongo server.');

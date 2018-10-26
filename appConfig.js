@@ -78,7 +78,7 @@ var dbConfig = {
     // Comment the 'options' object out to log in without authentication.
     'options': {
         'user': 'cities',
-        'pass': '6pIbSkFL88fwNecRemxXQqoq4V9YtqKeLCjT30Ty',
+        'pass': '',
         'auth': {
             // This is the authentication DB, not the one you wish to operate on.
             'authdb': 'admin'

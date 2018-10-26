@@ -9,7 +9,7 @@ var rekuire = require('rekuire');
 
 var apiOnlyMode = rekuire('appConfig.js').options.apiOnlyMode;
 
-module.exports = function(mongo, mongoose) {
+module.exports = function() {
     var api = require('./api');
     var docs = require('./docs');
 

@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 module.exports = mongoose.model(
-///PARAMS: .model(modelName, schema, collectionName)
 	'aramexCountry',
 	{	
 		countryCode: 		{type: String, unique: true},
