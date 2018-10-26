@@ -1,0 +1,322 @@
+extends layout
+
+block append js
+
+    //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+    if !appConfigOptions.useUglifiedJS
+        script(src='/js/ctrl_index.js')
+
+    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA7mA75nYFzE7pPw4jk58hVzhgmmdHPWio')
+    script(src='/bower_components/underscore/underscore-min.js')
+
+block toolbar-buttons
+    a(href="/docs")
+        button.btn.btn--l.btn--white.btn--flat.sentence-case(lx-ripple) Docs
+    //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+    if !appConfigOptions.apiOnlyMode
+        a(href="/signup")
+            button.btn.btn--l.btn--white.btn--flat.sentence-case(lx-ripple) Join
+
+
+
+block content
+
+    .home(ng-controller='IndexCtrl')
+
+
+        //-////////////////////////////////////////////////////////////////////////////////////
+        .segment.segment-full-height.bg-theme-dark-secondary.text-theme-light
+
+            .map
+
+            .universal-content-wrapper
+
+                .hero.align-center.tc-white
+                    div.main-logo(ng-include='"/img/geoip-logo-white.svg"')
+                    div.beta
+                        span.fs-body-2 beta
+
+                    h4.fs-headline.subtitle Discover information about any IP address
+
+
+                    .lookup-box
+                        input.lookup-input
+                        button.search-btn.btn.btn--l.btn--green.btn--flat.sentence-case(lx-ripple)
+                            i.mdi.mdi-magnify
+                        div.search-hint Type your IP address
+                        .dots
+                            span .
+                            span .
+                            span .
+                        .counter-ip
+                            .section.number-section.title-number-section
+                                .number-container
+                                    .odometer-container
+                                        .odometer.odometer-theme-minimal.odometer-theme-odometer
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 0
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 5
+                                                            span.odometer-value 4
+                                                            span.odometer-value.odometer-last-value 1
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 2
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 6
+                                                            span.odometer-value 4
+                                                            span.odometer-value 2
+                                                            span.odometer-value 3
+                                                            span.odometer-value.odometer-last-value 8
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 9
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 1
+                                                            span.odometer-value 3
+                                                            span.odometer-value 5
+                                                            span.odometer-value 7
+                                                            span.odometer-value 8
+                                                            span.odometer-value.odometer-last-value 8
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 6
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 3
+                                                            span.odometer-value 2
+                                                            span.odometer-value 6
+                                                            span.odometer-value 7
+                                                            span.odometer-value 8
+                                                            span.odometer-value 2
+                                                            span.odometer-value.odometer-last-value 2
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 0
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 6
+                                                            span.odometer-value 7
+                                                            span.odometer-value 3
+                                                            span.odometer-value 2
+                                                            span.odometer-value 1
+                                                            span.odometer-value 8
+                                                            span.odometer-value.odometer-last-value 0
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 9
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 9
+                                                            span.odometer-value 8
+                                                            span.odometer-value 6
+                                                            span.odometer-value 5
+                                                            span.odometer-value 7
+                                                            span.odometer-value 8
+                                                            span.odometer-value 1
+                                                            span.odometer-value.odometer-last-value 0
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 1
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 5
+                                                            span.odometer-value 3
+                                                            span.odometer-value 2
+                                                            span.odometer-value 5
+                                                            span.odometer-value 7
+                                                            span.odometer-value 4
+                                                            span.odometer-value 3
+                                                            span.odometer-value 2
+                                                            span.odometer-value 8
+                                                            span.odometer-value.odometer-last-value 0
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 1
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 2
+                                                            span.odometer-value 1
+                                                            span.odometer-value 6
+                                                            span.odometer-value 7
+                                                            span.odometer-value 2
+                                                            span.odometer-value 7
+                                                            span.odometer-value 9
+                                                            span.odometer-value 0
+                                                            span.odometer-value 1
+                                                            span.odometer-value.odometer-last-value 6
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 3
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 4
+                                                            span.odometer-value 2
+                                                            span.odometer-value 1
+                                                            span.odometer-value 6
+                                                            span.odometer-value 7
+                                                            span.odometer-value 3
+                                                            span.odometer-value 7
+                                                            span.odometer-value 9
+                                                            span.odometer-value 8
+                                                            span.odometer-value 4
+                                                            span.odometer-value.odometer-last-value 0
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 3
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 1
+                                                            span.odometer-value 6
+                                                            span.odometer-value 5
+                                                            span.odometer-value 6
+                                                            span.odometer-value 4
+                                                            span.odometer-value 9
+                                                            span.odometer-value 7
+                                                            span.odometer-value 8
+                                                            span.odometer-value 9
+                                                            span.odometer-value 0
+                                                            span.odometer-value.odometer-last-value 1
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 3
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 3
+                                                            span.odometer-value 2
+                                                            span.odometer-value 5
+                                                            span.odometer-value 6
+                                                            span.odometer-value 1
+                                                            span.odometer-value 3
+                                                            span.odometer-value 8
+                                                            span.odometer-value 0
+                                                            span.odometer-value 2
+                                                            span.odometer-value 8
+                                                            span.odometer-value.odometer-last-value 1
+                                            span.odometer-digit
+                                                span.odometer-digit-spacer 3
+                                                span.odometer-digit-inner
+                                                    span.odometer-ribbon
+                                                        span.odometer-ribbon-inner
+                                                            span.odometer-value.odometer-first-value &nbsp;
+                                                            span.odometer-value 0
+                                                            span.odometer-value 1
+                                                            span.odometer-value 4
+                                                            span.odometer-value 5
+                                                            span.odometer-value 6
+                                                            span.odometer-value 8
+                                                            span.odometer-value 9
+                                                            span.odometer-value 1
+                                                            span.odometer-value 4
+                                                            span.odometer-value 8
+                                                            span.odometer-value.odometer-last-value 0
+
+
+
+
+                .demo-wrapper
+                    .results-block
+                        p.block-title.fs-title.align-center Results
+
+                        div
+                            div(ng-repeat='r in demoResults')
+                                b Country code:&nbsp;
+                                    span.key {{r.countryCode}}
+                                br
+                                b English:&nbsp;
+                                    span.key {{r.en}}
+                                br
+                                b Arabic:&nbsp;
+                                    span.key {{r.ar}}
+
+
+        //-////////////////////////////////////////////////////////////////////////////////////
+        .segment.features-list
+
+            .universal-content-wrapper
+
+                #home-features
+
+                    h1.text-theme-dark.title Why it is cool
+
+
+                    //---------------------------------------------
+                    .feature-box
+                        .feature-icon
+                            .svg(ng-include='"img/ic-feature-free.svg"')
+                        .feature-description
+                            h3.feature-title.fs-title.zero-bottom-margin Free for life
+                            p Our service is totally free, and available for all!
+                        .feature-icon.right-normally-hidden.right
+
+                    //---------------------------------------------
+                    .feature-box
+                        .feature-icon
+                            .svg(ng-include='"img/ic-feature-accuracy.svg"')
+                        .feature-description
+                            h3.feature-title.fs-title.zero-bottom-margin High accuracy
+                            p GeoIP implements most up to date database, to get accurate result.
+
+
+                    //---------------------------------------------
+                    .feature-box
+                        .feature-icon
+                            .svg(ng-include='"img/ic-feature-simple.svg"')
+                        .feature-description
+                            h3.feature-title.fs-title.zero-bottom-margin Simple and easy
+                            p With GeoIP by ShopGo, you don't not need to have a account or subscription to use this API.
+
+                    //---------------------------------------------
+                    .feature-box
+                        .feature-icon
+                            .svg(ng-include='"img/ic-feature-search.svg"')
+                        .feature-description
+                            h3.feature-title.fs-title.zero-bottom-margin Fast search results
+                            p GeoIp by ShopGo use latest technology to bring result in light speed.
+
+
+
+
+
+
+        //-////////////////////////////////////////////////////////////////////////////////////
+        .home-video-box.text-theme-light.align-center
+                video(autoplay="", loop="", muted="", class="home-video")
+                    source(src="video/peep.mp4", type="video/mp4")
+                .primary-title
+                    div.num 99.9%
+                    span accuracy
+                .sub-title *We don't own this satellite...
+
+
+        //-////////////////////////////////////////////////////////////////////////////////////
+        //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+        if !appConfigOptions.apiOnlyMode
+            #home-contribute.segment.segment-extra-padding.text-theme-dark.align-center
+                .universal-content-wrapper
+                    h1.title Give us a hand
+                    h3.fs-title.fs-title.zero-bottom-margin With every contribution you make, Cities becomes richer and better.
+                    h3.fs-title.thin-text Sign up now and start adding and voting for suggested translations.
+
+                    a(href="/signup")
+                        button.btn.btn--xl.btn--raised.sentence-case.btn--red.bgc-pink-500.standard-fixed-size(lx-ripple) Join
+
+
+
+//- This simply cancels the extra space at the bottom of all pages extendding 'layout.jade'
+block bottom-blank-space

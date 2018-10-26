@@ -1,0 +1,491 @@
+.home {
+
+  margin-top: -20px;
+  background: #FFF;
+
+  .segment {
+
+    //This for some reason solves some stacking order issues
+    position: relative;
+
+    .title {
+      text-align: center;
+    }
+
+    .svg svg {
+      width: 100%;
+      fill: $theme-color-dark;
+    }
+
+    .svg.smaller svg {
+      //The "svg" element is accessible by virtue of "ng-include"
+      height: 70%;
+      width: 70%;
+    }
+
+    .test-drive {
+      height: 50px;
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      z-index: 3;
+    }
+
+    .demo-wrapper {
+      @include outer-container;
+
+      //This for some reason solves some stacking order issues
+      position: relative;
+
+      @include media-query(portable) {
+        padding-bottom: 50px;
+      }
+    }
+
+    .demo-button-container {
+      @include span-columns(1);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include media-query(desk) {
+        min-height: 340px;
+        max-height: 500px;
+      }
+
+      @include media-query(portable) {
+        @include span-columns(12);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .demo-button {
+          margin: 15px auto;
+        }
+      }
+
+    }
+
+    .code-block, .results-block {
+      display: none;
+      margin: 0 auto;
+      min-height: 175px;
+      max-height: 500px;
+
+      text-align: center;
+      padding: 15px 25px;
+
+      word-wrap: break-word;
+
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+
+      span {
+        font-family: monospace;
+        unicode-bidi: embed;
+        font-size: 1.2em;
+
+        // Remove input highlight
+        outline: none;
+
+        color: $indigo-200;
+      }
+
+      span.key {
+        color: #FFF;
+      }
+
+      span.separator {
+        color: $pink-100;
+      }
+
+      span.editable, span.tip {
+        border-radius: 3px;
+        padding: 3px;
+        margin: 3px;
+      }
+
+      span.editable {
+        color: $teal-50;
+        background: rgba(255, 255, 255, .1);
+      }
+
+      span.tip {
+        color: $grey-400;
+        background: rgba(0, 0, 0, .3);
+      }
+
+      .parameter {
+        margin-top: 3px;
+
+        i {
+          display: inline-block;
+          float: right;
+        }
+      }
+
+      .buttons {
+        padding: 0;
+
+        button {
+          margin-bottom: 0;
+        }
+      }
+
+      .results-separator {
+        height: 0;
+        width: 100%;
+        border-bottom: 1px solid $white-3;
+        margin: 10px 0;
+      }
+
+      .block-title {
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+
+    }
+
+    .code-block {
+      @include span-columns(5);
+      @include shift(1);
+
+      position: relative;
+
+      @include media-query(portable) {
+        @include span-columns(12);
+        @include shift(0);
+      }
+    }
+
+    .results-block {
+      width: 420px;
+      padding-bottom: 20px;
+      overflow: hidden;
+    }
+
+    @include media($tablet) {
+      .results-block {
+        width: 100%;
+      }
+    }
+
+    .hero {
+      margin: 30px auto 16px;
+
+      position: relative;
+
+      .main-logo svg {
+        height: 60px;
+        width: 100%;
+        fill: white;
+      }
+
+      .beta {
+        position: absolute;
+        top: -10px;
+        right: calc(50% - 110px)
+      }
+
+      .subtitle {
+        margin-top: 10px;
+      }
+    }
+
+    .card {
+
+      padding: 40px;
+      margin: -50px auto 50px;
+
+      @include span-columns(10);
+      @include shift(1);
+
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        margin-bottom: 5px;
+      }
+
+      @include media($tablet) {
+        @include span-columns(12);
+        @include shift(0);
+      }
+
+    }
+
+    button {
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+  }
+
+  .segment-full-height {
+    min-height: 730px;
+    position: relative;
+  }
+
+  .segment-extra-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .neat-grid-element-12 {
+    @include span-columns(1);
+    background: rgba(255, 0, 0, .1);
+  }
+
+  .neat-grid-element-16 {
+    @include span-columns(1 of 16);
+    background: rgba(0, 255, 0, .1);
+  }
+
+  .neat-grid-element-24 {
+    @include span-columns(1 of 24);
+    background: rgba(0, 0, 255, .1);
+  }
+
+  .features-list {
+    margin-top: -24px;
+    min-height: 600px;
+    background: #FFF url('../img/ic-features-bg.svg') no-repeat center right;
+  }
+
+  #home-features {
+    clear: both;
+
+    @include outer-container;
+
+    padding-top: 20px;
+    margin-bottom: 100px;
+
+    .feature-box {
+      width: 50%;
+      display: inline-block;
+      margin-top: 56px;
+
+      .feature-icon {
+
+        display: block;
+        width: 100%;
+        padding-bottom: 18px;
+
+        .svg {
+          width: 48px;
+          height: 48px;
+          margin: 0 auto;
+        }
+
+        @include media($tablet) {
+          @include span-columns(3);
+
+          .svg {
+            height: 100%;
+            width: 100%;
+            max-height: 100px;
+            max-width: 100px;
+          }
+        }
+
+        @include media-query(palm) {
+          @include span-columns(12);
+          @include shift(0);
+
+          .svg {
+            margin: auto !important;
+            height: 130px;
+            width: 130px;
+          }
+        }
+
+      }
+
+      .feature-icon.left {
+        .svg {
+          margin-right: 10px;
+        }
+
+      }
+
+      .feature-icon.left-normally-hidden {
+
+        opacity: 0;
+
+        //This is a native Neat media query with a custom-defined breakpoint,
+        //and not like the other LumX-defined breakpoints and media queries.
+        //Note the difference in the mixin name and the variable notation.
+        @include media($tablet) {
+          opacity: 1;
+
+        }
+
+      }
+
+      .feature-description {
+        display: block;
+        color: $theme-text-regular;
+        text-align: center;
+
+        h3 {
+          margin-bottom: 5px;
+          font-size: 28px;
+          font-weight: 400;
+        }
+        p {
+          padding-top: 12px;
+          font-weight: 400;
+        }
+
+        //This is a native Neat media query with a custom-defined breakpoint,
+        //and not like the other LumX-defined breakpoints and media queries.
+        //Note the difference in the mixin name and the variable notation.
+        @include media($tablet) {
+          @include span-columns(9);
+          margin-right: auto;
+        }
+
+        @include media-query(palm) {
+          @include span-columns(12);
+          @include shift(0);
+        }
+      }
+    }
+    @include media($tablet) {
+      .feature-box {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .home-video-box {
+    background-color: $theme-color-dark;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: relative;
+    .home-video {
+      width: 100%;
+    }
+    .primary-title {
+      position: absolute;
+      top: 36%;
+      left: 6%;
+      text-transform: uppercase;
+      font-size: 36px;
+      line-height: 45px;
+      .num {
+        font-size: 66px;
+        font-weight: 400;
+        font-family: arial, sans-serif;
+      }
+    }
+    .sub-title {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 12px;
+    }
+    @include media($tablet) {
+      .primary-title {
+        font-size: 21px;
+        line-height: 27px;
+        .num {
+          font-size: 38px;
+        }
+      }
+    }
+  }
+
+  .map {
+    opacity: 1;
+    width: 100%;
+
+    //64 being the toolbar's height
+    height: calc(100% + 64px);
+
+    position: absolute;
+    top: -64px;
+    left: 0;
+
+  }
+
+  .map::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .lookup-box {
+    position: relative;
+    width: 420px;
+    margin: 0 auto;
+    .lookup-input {
+      border: 0;
+      padding: 20px 20px 20px;
+      color: #222;
+      text-align: center;
+      outline: none;
+      width: 100%;
+      margin: 40px 0 0;
+      font-size: 30px;
+    }
+    button.search-btn {
+      position: absolute !important;
+      margin: 0 !important;
+      font-size: 42px;
+      right: 0;
+      top: 40px;
+      height: 75px;
+      i.mdi {
+        color: #29b464;
+      }
+    }
+    @include media($tablet) {
+      button.search-btn {
+        right: -12px;
+      }
+    }
+    .counter-ip {
+      color: #888888;
+      position: absolute;
+      top: 56px;
+      font-size: 30px;
+      width: 100%;
+    }
+    .search-hint {
+      font-size: 21px;
+      font-weight: 400;
+      margin-top: 14px;
+    }
+    .dots {
+      position: absolute;
+      display: none;
+      color: #888;
+      font-size: 30px;
+      width: 100%;
+      top: 56px;
+      span {
+        margin: 0 26px;
+      }
+    }
+    .odometer-digit:nth-child(4), .odometer-digit:nth-child(7), .odometer-digit:nth-child(10) {
+      margin-left: 10px;
+    }
+  }
+  @include media($tablet) {
+    .lookup-box {
+      width: 100%;
+    }
+  }
+}

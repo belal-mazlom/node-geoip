@@ -1,0 +1,43 @@
+#### URL Structure
+
+First, let's take a look at what a typical URL request for the API would look like:
+
+	http://geoip.shopgo.io/api/lookup?ip=188.200.60.110&format=json
+
+This can be split into three parts:
+
+1. **The stem** — `http://geoip.shopgo.io/api/lookup`, which is the path to access the API. `https` is also supported.
+
+1. **Required parameters** — `ip` to set IP you are looking for.
+
+1.  **Additional parameters** — `format`, to specify XML or JSON
+
+#### Parameters
+
+Additional parameters take the form of a query string attached to the end of the URL path.
+
+> **Reminder:** A query string is indicated by a `?` and lists key-value pairs in the form `key=value`, separated by an `&`. The order of these pairs does not make a difference.
+
+#### Results
+
+Regardless of the format you choose for the results, the structure is simple and clean. Take a look for yourself!
+
+* JSON
+
+       {
+        "countryCode":"NL",
+        "en":"Netherlands",
+        "ar":"هولندا"
+       }
+
+* XML
+
+		<result>
+            <countryCode>NL</countryCode>
+            <en>Netherlands</en>
+            <ar>هولندا</ar>
+        </result>
+
+
+#### What now?
+Now that you know how to access the API, you can use the results to populate a dropdown list or an autocomplete text field, or use them in any other creative way you can think of!

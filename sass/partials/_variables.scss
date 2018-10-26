@@ -1,0 +1,16 @@
+$Roboto: 'Roboto', sans-serif;
+
+@import url(http://fonts.googleapis.com/earlyaccess/notokufiarabic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notonaskharabic.css);
+$Noto: 'Noto Kufi Arabic', serif;
+// $Noto: 'Noto Naskh Arabic', serif;
+
+$theme-color-dark: #2ecc71;
+$theme-color-dark-secondary: #29b765;
+// $theme-color-light: #ECE6F5;
+$theme-color-light: #F9F8FB;
+$theme-text-regular: #636365;
+
+$mobile: new-breakpoint(max-width 460px);
+$tablet: new-breakpoint(max-width 768px);
+$above-tablet: new-breakpoint(min-width 769px);

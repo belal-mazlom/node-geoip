@@ -1,0 +1,97 @@
+html(lang='en', ng-app='app')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+        title= title
+
+        block css
+
+            link(rel='stylesheet', href='/bower_components/mdi/css/materialdesignicons.min.css')
+            link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700')
+
+
+            //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+            if appConfigOptions.useMinifiedCSS
+                link(rel='stylesheet', href='/dist/styles.min.css')
+            else
+                link(rel='stylesheet', href='/css/custom-styles.css')
+
+
+
+        block js
+
+            //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+            if appConfigOptions.enableLivereload
+                script(src='http://localhost:35729/livereload.js')
+
+
+            //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+            if appConfigOptions.useUglifiedJS
+
+                script(src='/bower_components/jquery/dist/jquery.min.js')
+                script(src='/bower_components/velocity/velocity.min.js')
+                script(src='/bower_components/angular/angular.min.js')
+                script(src='/bower_components/lumx/dist/lumx.min.js')
+                script(src='/bower_components/angular-resource/angular-resource.min.js')
+
+                //- This is a single, consolidated version for all views.
+                script(src='/dist/scripts.min.js')
+
+            else
+
+                script(src='/bower_components/jquery/dist/jquery.js')
+                script(src='/bower_components/velocity/velocity.js')
+                script(src='/bower_components/angular/angular.js')
+                script(src='/bower_components/lumx/dist/lumx.js')
+                script(src='/bower_components/angular-resource/angular-resource.js')
+
+                //- Other scripts might be needed for each view. This is just one part.
+                script(src='/js/ctrl_app.js')
+
+
+
+    body
+
+        div(ng-controller='AppCtrl')
+
+            block toolbar
+                .toolbar
+                    .logo.svg
+                        a(href='/')
+                            div(ng-include='"/img/geoip-logo-white.svg"')
+                    .navigation-bg-tint(ng-click='toggleNavigation()')
+                    .navigation
+                        block toolbar-buttons
+
+                        //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+                        if !appConfigOptions.apiOnlyMode
+                            block toolbar-user-buttons
+                                if logged_user
+                                    a(href="/dashboard")
+                                        button.btn.btn--l.btn--white.btn--flat.sentence-case(lx-ripple) Dashboard
+                                    button.btn.btn--l.btn--white.btn--flat.sentence-case(lx-ripple, ng-click='href("/signout")') Sign Out
+
+                                else
+                                    a(href="/login")
+                                        button.btn.btn--l.btn--white.btn--flat.sentence-case.bgc-white-4(lx-ripple) Login
+
+
+                    .navigation-toggle
+                        button.btn--icon.btn--white(lx-ripple, ng-click='toggleNavigation()')
+                            i.mdi.mdi-menu
+
+
+            .content
+                block content
+
+            block bottom-blank-space
+                .bottom-blank-space
+
+            block footer
+                div.segment.footer.text-theme-light.align-center.zero-bottom-margin
+                    .logo
+                        a(href="http://www.shopgo.me")
+                            img(src="/img/geoip-logo-white.svg")
+                    .contact-us
+                        p.fs-body-2.zero-bottom-margin support@shopgo.me

@@ -1,0 +1,43 @@
+extends layout
+
+block append js
+
+        //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+        if !appConfigOptions
+                script(src='/js/ctrl_index.js')
+
+block append css
+        link(rel='stylesheet', href='/bower_components/github-markdown-css/github-markdown.css')
+
+block content
+        .segment
+                .universal-content-wrapper
+
+                        .bg-theme-light.text-theme-dark
+                                div.align-center
+                                        h1.title Documentation
+                                        h3.fs-title.fs-title.zero-bottom-margin Using the GeoIP API is as simple as making an HTTP request.
+                                        h3.fs-title.fs-title.zero-bottom-margin There is only one step: submit the URL that fits your needs. That is it!
+                                        h3.fs-title.thin-text If this sounds good, then take a few minutes to read about more details.
+
+                                .billboard.bgc-yellow-A400
+                                        .billboard-icon
+                                                i.icon.mdi.mdi-alert-circle
+                                        .billboard-message
+                                                p.billboard-title The API is currently in beta.
+                                                p.billboard-body There are imperfections, especially in the translations.
+                                                p.billboard-body You can help make it better by reporting bugs or suggesting translations.
+
+
+                                .bg-theme-light
+                                        .docs
+                                                .markdown-body.bg-theme-light.text-theme-regular
+                                                        != md
+
+
+                                                .call-to-action.align-center
+                                                        //- 'appConfigOptions' is passed from the server to Jade. Check 'app.js'.
+                                                        if !appConfigOptions.apiOnlyMode
+                                                                h3.fs-title.fs-title.zero-bottom-margin.text-theme-dark Sign up and start using Cities right away!
+                                                                a(href='/signup')
+                                                                        button.btn.btn--xl.btn--raised.sentence-case.btn--red.bgc-pink-500.standard-fixed-size(lx-ripple) Sign Up

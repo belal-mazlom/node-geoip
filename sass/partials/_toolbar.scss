@@ -1,0 +1,195 @@
+.toolbar {
+	// z-index: 10;
+
+	height: 64px;
+
+	background-color: $theme-color-dark;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// z-index: 10;
+	// width: 100%;
+
+
+
+	.logo {
+		height: 30px;
+		width: 200px;
+		margin: 5px;
+		
+		svg {
+
+		}
+	}
+
+
+	.navigation {
+
+		button {
+			height: 100%;
+		}
+
+	}
+
+	.navigation-bg-tint {
+		// display: none;
+	}
+
+
+
+	.navigation-toggle {
+
+		display: none;
+
+	}
+
+}
+
+
+
+
+
+@include media-query(portable) {
+	.toolbar {
+
+		.navigation {
+			position: fixed;
+
+
+			height: 100%;
+
+			// z-index: 100;
+			z-index: 1000;
+
+			top: 0;
+			right: 0;
+
+			background-color: $theme-color-dark;
+
+			// border-radius: 0 0 0 3px;
+			// background: rgba(0, 0, 0, .5);
+			box-shadow: -3px 0px 10px rgba(0, 0, 0, .4);
+
+
+			display: flex;
+			flex-direction: column;
+
+			// align-items: stretch;
+			justify-content: flex-start;
+
+			width: 200px;
+
+			padding: 20px;
+
+
+			button {
+				width: 100%;
+				height: auto;
+			}
+
+
+			@include transition(all .3s ease-in-out);
+
+
+			// opacity: 0;
+			right: -250px;
+		}
+
+
+
+
+
+
+		.navigation-toggle {
+			display: block;
+			z-index: 10;
+			@include transition(all .3s ease-in-out);
+
+			position: relative;
+			left: 0;
+		}
+
+
+
+
+
+
+
+		// .navigation::before {
+		.navigation-bg-tint {
+			// display: none;
+			// display: block !important;
+			
+			z-index: 1000;
+
+			content: "";
+			height: 100%;
+
+			position: fixed;
+			top: 0;
+			right: 0;
+
+			background-color: rgba(0, 0, 0, .4);
+			
+			@include transition(opacity .3s ease-out);
+			opacity: 0;
+			width: 0;
+
+		}
+
+
+
+	}
+
+
+
+
+	.toolbar.open {
+
+		.navigation {
+			
+			// opacity: 1;
+			right: 0;
+		}
+
+		.navigation-bg-tint {
+			// display: block;
+			// left: 0;
+
+
+			width: 100%;
+			opacity: 1 !important;
+		}
+
+		.navigation-toggle {
+			left: 200px;
+		}
+
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.toolbar.toolbar-gradient {
+	// z-index: 10;
+	@include linear-gradient($theme-color-dark-secondary, $theme-color-dark);
+}
